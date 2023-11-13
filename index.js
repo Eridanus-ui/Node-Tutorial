@@ -1,8 +1,10 @@
-const path = require("node:path");
-const EventEmitter = require("node:events");
-const DrinkMachine = require("./drinkMachine");
-const PizzaShop = require("./pizzaShop");
-const fs = require("node:fs");
+// const path = require("node:path");
+// const EventEmitter = require("node:events");
+// const DrinkMachine = require("./drinkMachine");
+// const PizzaShop = require("./pizzaShop");
+// const fs = require("node:fs");
+// const zlib = require("node:zlib");
+// const http = require("node:http");
 
 // // *Path Module:
 // console.log(__filename);
@@ -78,13 +80,49 @@ const fs = require("node:fs");
 // console.log(buffer.toJSON());
 
 // //* FS Module
-// readFileSync is a synchronous and uses buffer behind the curtains. The second parameter is the decoding format of the file.
-// To use asynchronous behavior, use readFile.
-const syncFileContents = fs.readFileSync("./file.txt", "utf-8");
-console.log(syncFileContents);
+// // readFileSync is a synchronous and uses buffer behind the curtains. The second parameter is the decoding format of the file.
+// // To use asynchronous behavior, use readFile.
+// const syncFileContents = fs.readFileSync("./file.txt", "utf-8");
+// console.log(syncFileContents);
 
-fs.readFile("./file.txt", "utf-8", (error, data) => {
-  error ? console.log(error) : console.log(data);
-});
+// fs.readFile("./file.txt", "utf-8", (error, data) => {
+//   error ? console.log(error) : console.log(data);
+// });
 
 // //*Streams
+// // // First create a readable and writable stream.
+// // const readableStream = fs.createReadStream("./file.txt", {
+// //   encoding: "utf-8",
+
+// //   // {set the bits}
+// //   // highWaterMark: 2,
+// // });
+// // const writableStream = fs.createWriteStream("./file2.txt");
+
+// // // Add an event listener to the readable stream.
+// // readableStream.on("data", (chunk) => {
+// //   console.log(chunk);
+// //   writableStream.write(chunk);
+// // });
+
+// //*Pipes
+// //{An alternative(better) way to use streams}
+// const readableStream = fs.createReadStream("./file.txt", {
+//   encoding: "utf-8",
+
+//   // {set the bits}
+//   // highWaterMark: 2,
+// });
+// // const writableStream = fs.createWriteStream("./file2.txt");
+
+// // readableStream.pipe(writableStream);
+
+// // to work with chaining, we use zlib
+// const gzip = zlib.createGzip();
+
+// readableStream.pipe(gzip).pipe(fs.WriteStream(".file2.txt.gz"));
+
+// const writableStream = fs.createWriteStream("./file2.txt");
+
+// readableStream.pipe(writableStream);
+// //
